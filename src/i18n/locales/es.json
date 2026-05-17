@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "serveis": "Servicios",
+    "paquets": "Paquetes",
+    "comFunciona": "Cómo funciona",
+    "sobreMi": "Sobre mí",
+    "contacta": "Contacta"
+  },
+  "hero": {
+    "badge": "Diseño web · Bages · Cataluña",
+    "titol1": "WEBS QUE",
+    "titol2": "funcionan",
+    "titol3": "DE VERDAD.",
+    "desc": "Diseñamos y mantenemos tu web para que puedas dedicarte a tu negocio. Dominio, hosting y mantenimiento incluido.",
+    "desde": "Desde 29€/mes.",
+    "cta1": "Ver paquetes",
+    "cta2": "Hablemos",
+    "stat1val": "29€",
+    "stat1sub": "desde / mes",
+    "stat2val": "+3 años",
+    "stat2sub": "de experiencia",
+    "stat3val": "100%",
+    "stat3sub": "todo incluido",
+    "pill1": "Sin permanencia mínima",
+    "pill2": "Dominio y hosting incluido",
+    "pill3": "Soporte directo por WhatsApp",
+    "pill4": "Web lista en 2 semanas"
+  },
+  "serveis": {
+    "label": "Servicios",
+    "titol1": "TODO LO QUE",
+    "titol2": "NECESITAS,",
+    "titol3": "INCLUIDO",
+    "desc": "Una cuota mensual fija que cubre absolutamente todo. Sin sorpresas a final de mes.",
+    "items": [
+      { "title": "Diseño a medida", "desc": "Cada web es diferente porque cada negocio es diferente. Nada de plantillas genéricas." },
+      { "title": "Dominio + hosting", "desc": "No tienes que contratar nada más. Ni dominios, ni servidores, ni certificados SSL." },
+      { "title": "Mantenimiento incluido", "desc": "Actualizaciones, copias de seguridad y soporte. Yo me encargo cada mes." },
+      { "title": "Adaptada a móvil", "desc": "Más del 70% de visitas vienen del móvil. Perfecta en cualquier pantalla." },
+      { "title": "SEO optimizado", "desc": "Que te encuentren en Google cuando busquen tu servicio en la zona." },
+      { "title": "Soporte directo", "desc": "Me escribes por WhatsApp y te lo resuelvo yo. Sin tickets ni esperas." }
+    ]
+  },
+  "paquets": {
+    "label": "Paquetes",
+    "titol1": "ELIGE TU",
+    "titol2": "PAQUETE",
+    "popular": "El más elegido",
+    "setup": "+ {{preu}}€ puesta en marcha",
+    "escull": "Elegir {{nom}}",
+    "projecte": "¿Tienes un proyecto especial?",
+    "escriuMe": "Escríbeme y lo estudiamos.",
+    "items": [
+      {
+        "nom": "Llavor", "preu": 29, "setup": 199,
+        "ideal": "Bares, talleres, comercios pequeños",
+        "features": ["Web hasta 4 páginas", "Diseño responsive", "Dominio + hosting", "1 actualización/mes", "SSL y copias de seguridad"],
+        "no": ["SEO avanzado", "Informe mensual"]
+      },
+      {
+        "nom": "Branca", "preu": 49, "setup": 349, "popular": true,
+        "ideal": "Clínicas, academias, restaurantes",
+        "features": ["Web hasta 8 páginas", "Diseño a medida", "Dominio + hosting", "3 actualizaciones/mes", "SEO básico optimizado", "Formulario de contacto"],
+        "no": ["Informe mensual"]
+      },
+      {
+        "nom": "Alzina", "preu": 59, "setup": 549,
+        "ideal": "Empresas y profesionales",
+        "features": ["Páginas ilimitadas", "Diseño premium a medida", "Dominio + hosting", "Actualizaciones ilimitadas", "SEO avanzado + Analytics", "Informe mensual"],
+        "no": []
+      }
+    ]
+  },
+  "comFunciona": {
+    "label": "Cómo funciona",
+    "titol1": "EN TRES",
+    "titol2": "pasos",
+    "passos": [
+      { "num": "01", "title": "Hablamos", "desc": "Me dices cómo es tu negocio y qué necesitas. Una llamada de 20 minutos es suficiente." },
+      { "num": "02", "title": "Diseño y publico", "desc": "En menos de dos semanas tienes tu web en línea, revisada y aprobada por ti." },
+      { "num": "03", "title": "Yo me encargo", "desc": "Cada mes me aseguro de que todo funcione y esté al día. Tú no tienes que hacer nada." }
+    ],
+    "banner": "Lista en menos de 2 semanas",
+    "bannerSub": "Desde que hablamos hasta que tu negocio aparece en internet.",
+    "cta": "Empecemos →"
+  },
+  "sobreMi": {
+    "label": "Sobre mí",
+    "titol1": "HOLA,",
+    "titol2": "SOY",
+    "titol3": "Biel",
+    "p1": "Soy diseñador web y desarrollador del Bages. Hago webs profesionales para negocios locales porque creo que toda empresa, grande o pequeña, merece tener una buena presencia en internet.",
+    "p2": "Cuando trabajas con Arrel Studio, trabajas directamente conmigo — sin intermediarios. Si necesitas algo, me escribes y te lo resuelvo yo.",
+    "cta": "Hablemos sin compromiso",
+    "anys": "+3 años exp.",
+    "lloc": "Sant Fruitós de Bages"
+  },
+  "faq": {
+    "label": "FAQ",
+    "titol1": "DUDAS",
+    "titol2": "frecuentes",
+    "items": [
+      { "q": "¿Puedo cancelar cuando quiera?", "a": "Sí. No hay permanencia mínima. Si en algún momento quieres dejar el servicio, me lo dices con 30 días de antelación y listo." },
+      { "q": "¿El dominio es mío?", "a": "Sí. El dominio es tuyo y siempre lo será. Si dejas el servicio, te lo transfiero sin ningún coste." },
+      { "q": "¿En cuánto tiempo tengo la web lista?", "a": "Normalmente en 10 a 15 días desde que empezamos a trabajar, dependiendo de la complejidad y del contenido que me facilites." },
+      { "q": "¿Necesito saber algo de tecnología?", "a": "No. Yo me encargo de todo lo técnico. Tú solo tienes que decirme cómo quieres la web y revisar el resultado." },
+      { "q": "¿Haces webs en catalán?", "a": "Sí, la web puede estar en catalán, castellano o los dos, como prefieras." },
+      { "q": "¿Qué pasa si quiero cambiar contenido?", "a": "Depende del paquete. En el Llavor tienes 1 cambio al mes, en el Branca 3 y en el Alzina los que necesites. Me envías lo que quieres cambiar y lo hago yo." }
+    ]
+  },
+  "contacte": {
+    "label": "Contacto",
+    "titol1": "HABLEMOS",
+    "titol2": "sin compromiso",
+    "sub": "Te respondo en menos de 24 horas.",
+    "nom": "Nombre",
+    "nomPh": "Tu nombre",
+    "negoci": "Negocio",
+    "negociPh": "Tu negocio",
+    "contacte": "Email o teléfono",
+    "contactePh": "¿Cómo puedo contactarte?",
+    "missatge": "Mensaje",
+    "missatgePh": "Cuéntame un poco cómo es tu negocio...",
+    "privacy": "He leído y acepto la",
+    "privacyLink": "política de privacidad",
+    "enviar": "Enviar mensaje →",
+    "o": "O escribe a"
+  },
+  "footer": {
+    "lloc": "Sant Fruitós de Bages",
+    "avisLegal": "Aviso legal",
+    "privacitat": "Privacidad"
+  }
+}

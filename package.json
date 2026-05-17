@@ -11,8 +11,13 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "framer-motion": "^12.38.0",
+    "i18n": "^0.15.3",
+    "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "react-i18next": "^17.0.7",
+    "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.36.4",

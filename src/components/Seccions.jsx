@@ -1,190 +1,345 @@
-const passos = [
-  { num: '01', title: 'Parlem', desc: 'Em dius com és el teu negoci i què necessites. Una trucada de 20 minuts és suficient.' },
-  { num: '02', title: 'Dissenyo i publico', desc: 'En menys de dues setmanes tens la teva web en línia, revisada i aprovada per tu.' },
-  { num: '03', title: 'Jo me\'n cuido', desc: 'Cada mes m\'encarrego que tot funcioni i estigui al dia. Tu no has de fer res.' },
-]
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { motion } from 'framer-motion'
+import { fadeUp, fadeIn, slideLeft, slideRight, stagger, staggerFast, useScrollReveal } from '../hooks/useAnimation'
 
 export function ComFunciona() {
+  const { t } = useTranslation()
+  const passos = t('comFunciona.passos', { returnObjects: true })
+  const { ref, isInView } = useScrollReveal()
+  const { ref: passosRef, isInView: passosInView } = useScrollReveal()
+
   return (
     <section id="com-funciona" className="py-28 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
-        <div className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-4">Com funciona</div>
-        <h2 className="font-serif text-5xl md:text-6xl text-crema mb-20">En tres passos</h2>
 
-        <div className="grid md:grid-cols-3 gap-12">
-          {passos.map((p) => (
-            <div key={p.num} className="relative">
-              <div className="font-serif text-[7rem] leading-none text-white/4 select-none absolute -top-6 -left-2">{p.num}</div>
-              <div className="relative pt-10">
-                <div className="w-8 h-px bg-verd-accent mb-6"></div>
-                <h3 className="font-sans font-medium text-crema text-lg mb-3">{p.title}</h3>
-                <p className="font-sans text-sm text-white/40 leading-relaxed">{p.desc}</p>
+        <motion.div ref={ref} variants={stagger} initial="hidden" animate={isInView ? 'visible' : 'hidden'}>
+          <motion.div variants={fadeUp} className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-5 font-medium">{t('comFunciona.label')}</motion.div>
+          <motion.h2 variants={fadeUp} className="leading-[0.9] tracking-tight mb-20">
+            <span className="block font-display font-black text-5xl md:text-6xl text-crema uppercase">{t('comFunciona.titol1')}</span>
+            <span className="block font-serif italic text-5xl md:text-6xl text-verd-accent">{t('comFunciona.titol2')}</span>
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          ref={passosRef}
+          className="grid md:grid-cols-3 gap-12"
+          variants={stagger}
+          initial="hidden"
+          animate={passosInView ? 'visible' : 'hidden'}
+        >
+          {passos.map((p, i) => (
+            <motion.div key={p.num} variants={fadeUp} className="relative">
+              <div className="font-display font-black text-[8rem] leading-none text-white/4 select-none -left-2 tracking-tight">{p.num}</div>
+              <div className="relative ">
+                <motion.div
+                  className="w-8 h-px bg-verd-accent mb-6"
+                  initial={{ scaleX: 0, originX: 0 }}
+                  animate={passosInView ? { scaleX: 1 } : { scaleX: 0 }}
+                  transition={{ delay: 0.2 + i * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                />
+                <h3 className="font-display font-black text-crema text-sm mb-3 tracking-widest uppercase">{p.title}</h3>
+                <p className="font-sans font-light text-sm text-white/40 leading-relaxed">{p.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-20 p-8 rounded-2xl bg-nit-2 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div
+          className="mt-20 p-8 rounded-2xl bg-nit-2 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={passosInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div>
-            <div className="font-sans font-medium text-crema mb-1">Llest en menys de 2 setmanes</div>
-            <div className="font-sans text-sm text-white/40">Des que parlem fins que el teu negoci apareix a internet.</div>
+            <div className="font-display font-bold text-crema mb-1 tracking-tight">{t('comFunciona.banner')}</div>
+            <div className="font-sans font-light text-sm text-white/40">{t('comFunciona.bannerSub')}</div>
           </div>
-          <a href="#contacte" className="flex-shrink-0 bg-verd-accent text-nit font-sans font-medium px-6 py-3 rounded-full hover:bg-verd-clar transition-colors text-sm">
-            Comencem →
+          <a href="#contacte" className="flex-shrink-0 bg-verd-accent text-nit font-sans font-semibold px-6 py-3 rounded-full hover:bg-verd-clar transition-colors text-xs tracking-widest uppercase">
+            {t('comFunciona.cta')}
           </a>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   )
 }
 
 export function SobreMi() {
+  const { t } = useTranslation()
+  const { ref: leftRef, isInView: leftInView } = useScrollReveal()
+  const { ref: rightRef, isInView: rightInView } = useScrollReveal()
+
   return (
     <section id="sobre-mi" className="py-28 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-        <div>
-          <div className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-6">Sobre mi</div>
-          <h2 className="font-serif text-5xl text-crema mb-8 leading-tight">
-            Hola,<br />soc en Biel
-          </h2>
-          <p className="font-sans text-white/50 leading-relaxed mb-4 text-sm">
-            Soc dissenyador web i desenvolupador del Bages. Faig webs professionals per a negocis locals perquè crec que tota empresa, gran o petita, mereix tenir una bona presència a internet.
-          </p>
-          <p className="font-sans text-white/50 leading-relaxed mb-8 text-sm">
-            Quan treballes amb Arrel Studio, treballes directament amb mi — sense intermediaris. Si necessites alguna cosa, m'escrius i te la resolc jo.
-          </p>
-          <a href="#contacte" className="inline-flex items-center gap-2 text-verd-accent font-sans text-sm hover:gap-3 transition-all">
-            Parlem sense compromís
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
 
-        <div className="flex justify-center md:justify-end">
+        <motion.div
+          ref={leftRef}
+          variants={stagger}
+          initial="hidden"
+          animate={leftInView ? 'visible' : 'hidden'}
+        >
+          <motion.div variants={fadeUp} className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-6 font-medium">{t('sobreMi.label')}</motion.div>
+          <motion.h2 variants={slideLeft} className="leading-[0.9] tracking-tight mb-8">
+            <span className="block font-display font-black text-5xl md:text-6xl text-crema uppercase">{t('sobreMi.titol1')}</span>
+            <span className="block font-display font-black text-5xl md:text-6xl text-crema uppercase">{t('sobreMi.titol2')}</span>
+            <span className="block font-serif italic text-5xl md:text-6xl text-verd-accent">{t('sobreMi.titol3')}</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="font-sans font-light text-white/50 leading-relaxed mb-4 text-sm">{t('sobreMi.p1')}</motion.p>
+          <motion.p variants={fadeUp} className="font-sans font-light text-white/50 leading-relaxed mb-8 text-sm">{t('sobreMi.p2')}</motion.p>
+          <motion.a
+            variants={fadeUp}
+            href="#contacte"
+            className="inline-flex items-center gap-2 text-verd-accent font-sans font-semibold text-xs tracking-widest uppercase hover:gap-3 transition-all"
+          >
+            {t('sobreMi.cta')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </motion.a>
+        </motion.div>
+
+        <motion.div
+          ref={rightRef}
+          className="flex justify-center md:justify-end"
+          variants={slideRight}
+          initial="hidden"
+          animate={rightInView ? 'visible' : 'hidden'}
+        >
           <div className="relative">
-            <div className="w-72 h-72 rounded-2xl bg-nit-2 border border-white/8 flex items-center justify-center">
+            <motion.div
+              className="w-72 h-72 rounded-2xl bg-nit-2 border border-white/8 flex items-center justify-center"
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+            >
               <div className="text-center">
-                <div className="font-serif text-6xl text-verd-accent mb-3">BD</div>
-                <div className="font-sans text-xs text-white/40 tracking-widest uppercase">Biel Díaz Basullas</div>
-                <div className="font-sans text-xs text-white/25 mt-1">Sant Fruitós de Bages</div>
+                <div className="font-serif italic text-6xl text-verd-accent mb-3">Bd</div>
+                <div className="font-sans font-light text-xs text-white/40 tracking-widest uppercase">Biel Díaz Basullas</div>
+                <div className="font-sans font-light text-xs text-white/25 mt-1">{t('sobreMi.lloc')}</div>
               </div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-verd-accent text-nit font-sans text-xs font-medium px-4 py-2 rounded-full">
-              +3 anys d'experiència
-            </div>
+            </motion.div>
+            <motion.div
+              className="absolute -bottom-4 -right-4 bg-verd-accent text-nit font-sans font-semibold text-xs px-4 py-2 rounded-full tracking-widest uppercase"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={rightInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.4, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {t('sobreMi.anys')}
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   )
 }
 
-const faqs = [
-  { q: 'Puc cancel·lar quan vulgui?', a: 'Sí. No hi ha permanència mínima. Si en algun moment vols deixar el servei, m\'ho dius amb 30 dies d\'antelació i ja està.' },
-  { q: 'El domini és meu?', a: 'Sí. El domini és teu i sempre ho serà. Si deixes el servei, te\'l transfereixo sense cap cost.' },
-  { q: 'En quant de temps tinc la web llesta?', a: 'Normalment en 10 a 15 dies des que comencem a treballar, depenent de la complexitat i del contingut que em facilitis.' },
-  { q: 'Necessito saber res de tecnologia?', a: 'No. Jo m\'encarrego de tot el tècnic. Tu només has de dir-me com vols la web i revisar el resultat.' },
-  { q: 'Fas webs en castellà?', a: 'Sí, la web pot estar en català, castellà o les dues, com prefereixis.' },
-  { q: 'Que passa si vull canviar contingut?', a: 'Depèn del paquet. Al Llavor tens 1 canvi al mes, al Branca 3 i a l\'Alzina els que necessitis. M\'envies el que vols canviar i ho faig jo.' },
-]
-
 export function FAQ() {
+  const { t } = useTranslation()
+  const faqs = t('faq.items', { returnObjects: true })
+  const { ref, isInView } = useScrollReveal()
+  const { ref: faqRef, isInView: faqInView } = useScrollReveal()
+
   return (
     <section className="py-28 px-6 border-t border-white/5">
       <div className="max-w-3xl mx-auto">
-        <div className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-4">FAQ</div>
-        <h2 className="font-serif text-5xl text-crema mb-16">Dubtes habituals</h2>
-        <div className="divide-y divide-white/5">
+
+        <motion.div ref={ref} variants={stagger} initial="hidden" animate={isInView ? 'visible' : 'hidden'}>
+          <motion.div variants={fadeUp} className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-5 font-medium">{t('faq.label')}</motion.div>
+          <motion.h2 variants={fadeUp} className="leading-[0.9] tracking-tight mb-16">
+            <span className="block font-display font-black text-5xl text-crema uppercase">{t('faq.titol1')}</span>
+            <span className="block font-serif italic text-5xl text-verd-accent">{t('faq.titol2')}</span>
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          ref={faqRef}
+          className="divide-y divide-white/5"
+          variants={stagger}
+          initial="hidden"
+          animate={faqInView ? 'visible' : 'hidden'}
+        >
           {faqs.map((faq, i) => (
-            <details key={i} className="group py-5">
+            <motion.details key={i} variants={fadeUp} className="group py-5">
               <summary className="flex items-center justify-between cursor-pointer list-none gap-4">
-                <span className="font-sans text-sm font-medium text-crema/80 group-open:text-crema transition-colors">{faq.q}</span>
+                <span className="font-sans font-medium text-sm text-crema/70 group-open:text-crema transition-colors">{faq.q}</span>
                 <svg className="w-4 h-4 text-verd-accent flex-shrink-0 transition-transform group-open:rotate-45" viewBox="0 0 16 16" fill="none">
                   <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
                 </svg>
               </summary>
-              <p className="font-sans text-sm text-white/40 leading-relaxed mt-4 pr-8">{faq.a}</p>
-            </details>
+              <p className="font-sans font-light text-sm text-white/40 leading-relaxed mt-4 pr-8">{faq.a}</p>
+            </motion.details>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   )
 }
 
 export function Contacte() {
+  const { t, i18n } = useTranslation()
+  const { ref, isInView } = useScrollReveal()
+  const { ref: formRef, isInView: formInView } = useScrollReveal()
+  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'ok' | 'error'
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    const form = e.target
+    const data = new FormData(form)
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setStatus('ok')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  const isCA = i18n.language === 'ca'
+
   return (
     <section id="contacte" className="py-28 px-6 border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-verd-mig/8 rounded-full blur-3xl"></div>
       </div>
-
       <div className="relative max-w-2xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-4">Contacte</div>
-          <h2 className="font-serif text-5xl md:text-6xl text-crema mb-4">Parlem sense compromís</h2>
-          <p className="font-sans text-white/40 text-sm">Et respoc en menys de 24 hores.</p>
-        </div>
 
-        <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-          className="bg-nit-2 rounded-2xl p-8 border border-white/8 grid gap-4"
+        <motion.div
+          ref={ref}
+          className="text-center mb-16"
+          variants={stagger}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
         >
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block font-sans text-xs text-white/30 mb-2 uppercase tracking-wide">Nom</label>
-              <input type="text" name="nom" required placeholder="El teu nom"
-                className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans text-sm text-crema placeholder-white/20 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
+          <motion.div variants={fadeUp} className="text-verd-accent text-xs font-sans tracking-widest uppercase mb-5 font-medium">{t('contacte.label')}</motion.div>
+          <motion.h2 variants={fadeUp} className="leading-[0.9] tracking-tight mb-4">
+            <span className="block font-display font-black text-5xl md:text-6xl text-crema uppercase">{t('contacte.titol1')}</span>
+            <span className="block font-serif italic text-5xl md:text-6xl text-verd-accent">{t('contacte.titol2')}</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="font-sans font-light text-white/40 text-sm mt-6">{t('contacte.sub')}</motion.p>
+        </motion.div>
+
+        {status === 'ok' ? (
+          <motion.div
+            className="bg-nit-2 rounded-2xl p-12 border border-verd-mig/30 text-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="w-14 h-14 rounded-full bg-verd-mig/15 border border-verd-mig/30 flex items-center justify-center mx-auto mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8E040" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <h3 className="font-display font-black text-2xl text-crema uppercase tracking-tight mb-3">
+              {isCA ? 'MISSATGE ENVIAT' : 'MENSAJE ENVIADO'}
+            </h3>
+            <p className="font-sans font-light text-white/50 text-sm leading-relaxed mb-8">
+              {isCA
+                ? "Gràcies per contactar amb Arrel Studio. Et respondré en menys de 24 hores."
+                : "Gracias por contactar con Arrel Studio. Te responderé en menos de 24 horas."}
+            </p>
+            <button
+              onClick={() => setStatus('idle')}
+              className="text-xs font-sans font-semibold text-verd-accent tracking-widest uppercase hover:underline"
+            >
+              {isCA ? 'Enviar un altre missatge' : 'Enviar otro mensaje'}
+            </button>
+          </motion.div>
+        ) : (
+          <motion.form
+            ref={formRef}
+            action="https://formspree.io/f/mnjrqqld"
+            onSubmit={handleSubmit}
+            className="bg-nit-2 rounded-2xl p-8 border border-white/8 grid gap-4"
+            initial={{ opacity: 0, y: 40 }}
+            animate={formInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-sans text-xs text-white/25 mb-2 uppercase tracking-widest font-medium">{t('contacte.nom')}</label>
+                <input type="text" name="nom" required placeholder={t('contacte.nomPh')}
+                  className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans font-light text-sm text-crema placeholder-white/15 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
+              </div>
+              <div>
+                <label className="block font-sans text-xs text-white/25 mb-2 uppercase tracking-widest font-medium">{t('contacte.negoci')}</label>
+                <input type="text" name="negoci" placeholder={t('contacte.negociPh')}
+                  className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans font-light text-sm text-crema placeholder-white/15 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
+              </div>
             </div>
             <div>
-              <label className="block font-sans text-xs text-white/30 mb-2 uppercase tracking-wide">Negoci</label>
-              <input type="text" name="negoci" placeholder="El teu negoci"
-                className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans text-sm text-crema placeholder-white/20 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
+              <label className="block font-sans text-xs text-white/25 mb-2 uppercase tracking-widest font-medium">{t('contacte.contacte')}</label>
+              <input type="text" name="contacte" required placeholder={t('contacte.contactePh')}
+                className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans font-light text-sm text-crema placeholder-white/15 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
             </div>
-          </div>
-          <div>
-            <label className="block font-sans text-xs text-white/30 mb-2 uppercase tracking-wide">Email o telèfon</label>
-            <input type="text" name="contacte" required placeholder="Com et puc contactar?"
-              className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans text-sm text-crema placeholder-white/20 focus:outline-none focus:border-verd-accent/50 transition-colors"/>
-          </div>
-          <div>
-            <label className="block font-sans text-xs text-white/30 mb-2 uppercase tracking-wide">Missatge</label>
-            <textarea name="missatge" rows={4} placeholder="Explica'm una mica com és el teu negoci..."
-              className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans text-sm text-crema placeholder-white/20 focus:outline-none focus:border-verd-accent/50 transition-colors resize-none"></textarea>
-          </div>
-          <div className="flex items-start gap-2">
-            <input type="checkbox" required id="privacy" className="mt-1 accent-verd-accent"/>
-            <label htmlFor="privacy" className="font-sans text-xs text-white/30">
-              He llegit i accepto la <a href="/privacitat" className="text-verd-accent hover:underline">política de privacitat</a>
-            </label>
-          </div>
-          <button type="submit"
-            className="w-full bg-verd-accent text-nit font-sans font-medium py-4 rounded-full hover:bg-verd-clar transition-all hover:scale-[1.01]">
-            Enviar missatge →
-          </button>
-          <p className="text-center font-sans text-xs text-white/25">
-            O escriu a <a href="mailto:hola@arrelstudio.cat" className="text-verd-accent hover:underline">hola@arrelstudio.cat</a>
-          </p>
-        </form>
+            <div>
+              <label className="block font-sans text-xs text-white/25 mb-2 uppercase tracking-widest font-medium">{t('contacte.missatge')}</label>
+              <textarea name="missatge" rows={4} placeholder={t('contacte.missatgePh')}
+                className="w-full bg-nit border border-white/8 rounded-xl px-4 py-3 font-sans font-light text-sm text-crema placeholder-white/15 focus:outline-none focus:border-verd-accent/50 transition-colors resize-none"></textarea>
+            </div>
+            <div className="flex items-start gap-2">
+              <input type="checkbox" required id="privacy" className="mt-1 accent-verd-accent"/>
+              <label htmlFor="privacy" className="font-sans font-light text-xs text-white/25">
+                {t('contacte.privacy')}{' '}
+                <a href="/privacitat" className="text-verd-accent hover:underline">{t('contacte.privacyLink')}</a>
+              </label>
+            </div>
+
+            {status === 'error' && (
+              <p className="text-xs font-sans text-red-400 text-center">
+                {isCA ? "Hi ha hagut un error. Prova de nou o escriu a hola@arrelstudio.cat" : "Ha habido un error. Inténtalo de nuevo o escribe a hola@arrelstudio.cat"}
+              </p>
+            )}
+
+            <motion.button
+              type="submit"
+              disabled={status === 'sending'}
+              className="w-full bg-verd-accent text-nit font-sans font-semibold py-4 rounded-full text-xs tracking-widest uppercase disabled:opacity-60 disabled:cursor-not-allowed"
+              whileHover={{ scale: status === 'sending' ? 1 : 1.02, backgroundColor: '#97C459' }}
+              whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
+              transition={{ duration: 0.15 }}
+            >
+              {status === 'sending'
+                ? (isCA ? 'Enviant...' : 'Enviando...')
+                : t('contacte.enviar')}
+            </motion.button>
+            <p className="text-center font-sans font-light text-xs text-white/20">
+              {t('contacte.o')}{' '}
+              <a href="mailto:hola@arrelstudio.cat" className="text-verd-accent hover:underline">hola@arrelstudio.cat</a>
+            </p>
+          </motion.form>
+        )}
       </div>
     </section>
   )
 }
 
 export function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="py-8 px-6 border-t border-white/5">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="font-serif text-lg text-crema">
-          Arrel<span className="text-verd-accent">.</span>
+        <div className="flex items-baseline gap-0">
+          <span className="font-display font-black text-lg text-crema tracking-tight uppercase">ARREL</span>
+          <span className="font-serif italic text-verd-accent text-xl leading-none">.</span>
         </div>
-        <div className="font-sans text-xs text-white/25 text-center">
-          Sant Fruitós de Bages · hola@arrelstudio.cat
+        <div className="font-sans font-light text-xs text-white/25 text-center">
+          {t('footer.lloc')} · hola@arrelstudio.cat
         </div>
-        <div className="flex items-center gap-4 font-sans text-xs text-white/25">
-          <a href="/avis-legal" className="hover:text-white/60 transition-colors">Avís legal</a>
+        <div className="flex items-center gap-4 font-sans font-light text-xs text-white/25">
+          <a href="/avis-legal" className="hover:text-white/60 transition-colors">{t('footer.avisLegal')}</a>
           <span>·</span>
-          <a href="/privacitat" className="hover:text-white/60 transition-colors">Privacitat</a>
+          <a href="/privacitat" className="hover:text-white/60 transition-colors">{t('footer.privacitat')}</a>
           <span>·</span>
           <span>© 2025</span>
         </div>

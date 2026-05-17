@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "serveis": "Serveis",
+    "paquets": "Paquets",
+    "comFunciona": "Com funciona",
+    "sobreMi": "Sobre mi",
+    "contacta": "Contacta"
+  },
+  "hero": {
+    "badge": "Disseny web · Bages · Catalunya",
+    "titol1": "WEBS QUE",
+    "titol2": "funcionen",
+    "titol3": "DE DEBÒ.",
+    "desc": "Dissenyem i mantenim la teva web perquè puguis dedicar-te al teu negoci. Domini, hosting i manteniment inclòs.",
+    "desde": "Des de 29€/mes.",
+    "cta1": "Veure paquets",
+    "cta2": "Parlem-ne",
+    "stat1val": "29€",
+    "stat1sub": "des de / mes",
+    "stat2val": "+3 anys",
+    "stat2sub": "d'experiència",
+    "stat3val": "100%",
+    "stat3sub": "tot inclòs",
+    "pill1": "Sense permanència mínima",
+    "pill2": "Domini i hosting inclòs",
+    "pill3": "Suport directe per WhatsApp",
+    "pill4": "Web llesta en 2 setmanes"
+  },
+  "serveis": {
+    "label": "Serveis",
+    "titol1": "TOT EL QUE",
+    "titol2": "NECESSITES,",
+    "titol3": "INCLÒS",
+    "desc": "Una quota mensual fixa que cobreix absolutament tot. Sense sorpreses a final de mes.",
+    "items": [
+      { "title": "Disseny a mida", "desc": "Cada web és diferent perquè cada negoci és diferent. Res de plantilles genèriques." },
+      { "title": "Domini + hosting", "desc": "No has de contractar res més. Ni dominis, ni servidors, ni certificats SSL." },
+      { "title": "Manteniment inclòs", "desc": "Actualitzacions, còpies de seguretat i suport. Jo me'n cuido cada mes." },
+      { "title": "Adaptada a mòbil", "desc": "Més del 70% de visites venen del mòbil. Perfecta a qualsevol pantalla." },
+      { "title": "SEO optimitzat", "desc": "Que et trobin a Google quan busquin el teu servei a la zona." },
+      { "title": "Suport directe", "desc": "M'escrius per WhatsApp i t'ho resolc jo. Sense tickets ni esperes." }
+    ]
+  },
+  "paquets": {
+    "label": "Paquets",
+    "titol1": "TRIA EL TEU",
+    "titol2": "PAQUET",
+    "popular": "El més triat",
+    "setup": "+ {{preu}}€ posada en marxa",
+    "escull": "Escull {{nom}}",
+    "projecte": "Tens un projecte especial?",
+    "escriuMe": "Escriu-me i ho estudiem.",
+    "items": [
+      {
+        "nom": "Llavor", "preu": 29, "setup": 199,
+        "ideal": "Bars, tallers, comerços petits",
+        "features": ["Web fins a 4 pàgines", "Disseny responsive", "Domini + hosting", "1 actualització/mes", "SSL i còpies de seguretat"],
+        "no": ["SEO avançat", "Informe mensual"]
+      },
+      {
+        "nom": "Branca", "preu": 49, "setup": 349, "popular": true,
+        "ideal": "Clíniques, acadèmies, restaurants",
+        "features": ["Web fins a 8 pàgines", "Disseny a mida", "Domini + hosting", "3 actualitzacions/mes", "SEO bàsic optimitzat", "Formulari de contacte"],
+        "no": ["Informe mensual"]
+      },
+      {
+        "nom": "Alzina", "preu": 59, "setup": 549,
+        "ideal": "Empreses i professionals",
+        "features": ["Pàgines il·limitades", "Disseny premium a mida", "Domini + hosting", "Actualitzacions il·limitades", "SEO avançat + Analytics", "Informe mensual"],
+        "no": []
+      }
+    ]
+  },
+  "comFunciona": {
+    "label": "Com funciona",
+    "titol1": "EN TRES",
+    "titol2": "passos",
+    "passos": [
+      { "num": "01", "title": "Parlem", "desc": "Em dius com és el teu negoci i què necessites. Una trucada de 20 minuts és suficient." },
+      { "num": "02", "title": "Dissenyo i publico", "desc": "En menys de dues setmanes tens la teva web en línia, revisada i aprovada per tu." },
+      { "num": "03", "title": "Jo me'n cuido", "desc": "Cada mes m'encarrego que tot funcioni i estigui al dia. Tu no has de fer res." }
+    ],
+    "banner": "Llest en menys de 2 setmanes",
+    "bannerSub": "Des que parlem fins que el teu negoci apareix a internet.",
+    "cta": "Comencem →"
+  },
+  "sobreMi": {
+    "label": "Sobre mi",
+    "titol1": "HOLA,",
+    "titol2": "SOC EN",
+    "titol3": "Biel",
+    "p1": "Soc dissenyador web i desenvolupador del Bages. Faig webs professionals per a negocis locals perquè crec que tota empresa, gran o petita, mereix tenir una bona presència a internet.",
+    "p2": "Quan treballes amb Arrel Studio, treballes directament amb mi — sense intermediaris. Si necessites alguna cosa, m'escrius i te la resolc jo.",
+    "cta": "Parlem sense compromís",
+    "anys": "+3 anys exp.",
+    "lloc": "Sant Fruitós de Bages"
+  },
+  "faq": {
+    "label": "FAQ",
+    "titol1": "DUBTES",
+    "titol2": "habituals",
+    "items": [
+      { "q": "Puc cancel·lar quan vulgui?", "a": "Sí. No hi ha permanència mínima. Si en algun moment vols deixar el servei, m'ho dius amb 30 dies d'antelació i ja està." },
+      { "q": "El domini és meu?", "a": "Sí. El domini és teu i sempre ho serà. Si deixes el servei, te'l transfereixo sense cap cost." },
+      { "q": "En quant de temps tinc la web llesta?", "a": "Normalment en 10 a 15 dies des que comencem a treballar, depenent de la complexitat i del contingut que em facilitis." },
+      { "q": "Necessito saber res de tecnologia?", "a": "No. Jo m'encarrego de tot el tècnic. Tu només has de dir-me com vols la web i revisar el resultat." },
+      { "q": "Fas webs en castellà?", "a": "Sí, la web pot estar en català, castellà o les dues, com prefereixis." },
+      { "q": "Que passa si vull canviar contingut?", "a": "Depèn del paquet. Al Llavor tens 1 canvi al mes, al Branca 3 i a l'Alzina els que necessitis. M'envies el que vols canviar i ho faig jo." }
+    ]
+  },
+  "contacte": {
+    "label": "Contacte",
+    "titol1": "PARLEM",
+    "titol2": "sense compromís",
+    "sub": "Et respoc en menys de 24 hores.",
+    "nom": "Nom",
+    "nomPh": "El teu nom",
+    "negoci": "Negoci",
+    "negociPh": "El teu negoci",
+    "contacte": "Email o telèfon",
+    "contactePh": "Com et puc contactar?",
+    "missatge": "Missatge",
+    "missatgePh": "Explica'm una mica com és el teu negoci...",
+    "privacy": "He llegit i accepto la",
+    "privacyLink": "política de privacitat",
+    "enviar": "Enviar missatge →",
+    "o": "O escriu a"
+  },
+  "footer": {
+    "lloc": "Sant Fruitós de Bages",
+    "avisLegal": "Avís legal",
+    "privacitat": "Privacitat"
+  }
+}
