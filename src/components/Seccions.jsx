@@ -198,7 +198,7 @@ export function Contacte() {
       // Envia al CRM (nou)
       const nom = data.get('nom') || ''
 
-      await fetch('https://unmaterial-tanner-overeducatively.ngrok-free.dev/api/leads/webhook', {
+      await fetch('https://arrel-studio-system-koje.vercel.app/api/leads/webhook',, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
