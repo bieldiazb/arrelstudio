@@ -186,12 +186,29 @@ export function Contacte() {
     setStatus('sending')
     const form = e.target
     const data = new FormData(form)
+
     try {
+      // Envia a Formspree (actual)
       const res = await fetch(form.action, {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
       })
+
+      // Envia al CRM (nou)
+      const nom = data.get('nom') || ''
+
+      await fetch('https://unmaterial-tanner-overeducatively.ngrok-free.dev/api/leads/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nom,
+          email: data.get('contacte') || '',
+          company: data.get('negoci') || '',
+          message: data.get('missatge') || '',
+        }),
+      }).catch(err => console.error('CRM error:', err))
+
       if (res.ok) {
         setStatus('ok')
         form.reset()
